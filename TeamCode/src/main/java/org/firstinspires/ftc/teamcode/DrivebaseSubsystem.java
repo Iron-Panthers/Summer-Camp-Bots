@@ -5,11 +5,9 @@ import com.arcrobotics.ftclib.drivebase.DifferentialDrive;
 import com.arcrobotics.ftclib.hardware.motors.MotorEx;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
-import java.util.function.DoubleSupplier;
-
 public class DrivebaseSubsystem extends SubsystemBase {
 
-    DoubleSupplier leftY, rightX;
+    double leftY, rightX;
 
     MotorEx lMotor, rMotor;
 
@@ -23,13 +21,13 @@ public class DrivebaseSubsystem extends SubsystemBase {
         differentialDrive = new DifferentialDrive(lMotor, rMotor);
     }
 
-    public void drive(DoubleSupplier leftY, DoubleSupplier rightX) {
+    public void drive(double leftY, double rightX) {
         this.leftY = leftY;
         this.rightX = rightX;
     }
 
     @Override
     public void periodic() {
-        differentialDrive.arcadeDrive(leftY.getAsDouble(), rightX.getAsDouble(), true);
+        differentialDrive.arcadeDrive(leftY, rightX, true);
     }
 }

@@ -26,7 +26,7 @@ public class DrivebaseCommand extends CommandBase {
 
     @Override
     public void execute() {
-        drivebaseSubsystem.drive(leftY, rightX);
+        drivebaseSubsystem.drive(leftY.getAsDouble(), rightX.getAsDouble());
     }
 
     @Override
