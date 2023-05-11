@@ -22,12 +22,11 @@ public class DrivebaseCommand extends CommandBase {
 
     @Override
     public void initialize() {
-        drivebaseSubsystem.drive(leftY, rightX);
     }
 
     @Override
     public void execute() {
-
+        drivebaseSubsystem.drive(leftY, rightX);
     }
 
     @Override
