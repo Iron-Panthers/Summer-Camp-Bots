@@ -12,6 +12,8 @@ public class DrivebaseCommand extends CommandBase {
 
     public DrivebaseCommand(DrivebaseSubsystem drivebaseSubsystem, DoubleSupplier leftY, DoubleSupplier rightX) {
 
+
+
         this.drivebaseSubsystem = drivebaseSubsystem;
 
         this.leftY = leftY;
@@ -22,12 +24,12 @@ public class DrivebaseCommand extends CommandBase {
 
     @Override
     public void initialize() {
-        drivebaseSubsystem.drive(leftY.getAsDouble(), rightX.getAsDouble());
     }
 
     @Override
     public void execute() {
-
+        if (leftY == null || rightX == null) return;
+        drivebaseSubsystem.drive(leftY.getAsDouble(), rightX.getAsDouble());
     }
 
     @Override

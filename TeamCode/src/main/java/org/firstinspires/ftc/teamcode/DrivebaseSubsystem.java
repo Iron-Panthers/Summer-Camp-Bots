@@ -15,10 +15,13 @@ public class DrivebaseSubsystem extends SubsystemBase {
 
     public DrivebaseSubsystem(HardwareMap hMap) {
 
+        leftY = 0;
+        rightX = 0;
+
         lMotor = new MotorEx(hMap, "lMotor");
         rMotor = new MotorEx(hMap, "rMotor");
 
-        differentialDrive = new DifferentialDrive(lMotor, rMotor);
+        differentialDrive = new DifferentialDrive(true, lMotor, rMotor);
     }
 
     public void drive(double leftY, double rightX) {
