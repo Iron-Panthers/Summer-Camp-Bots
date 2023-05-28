@@ -13,6 +13,11 @@ public class DrivebaseSubsystem extends SubsystemBase {
 
     DifferentialDrive differentialDrive;
 
+    //innerwheels expansionhub - autoinvert true, 0.75*rightX,
+    //
+    //
+    //
+
     public DrivebaseSubsystem(HardwareMap hMap) {
 
         leftY = 0;
@@ -31,6 +36,6 @@ public class DrivebaseSubsystem extends SubsystemBase {
 
     @Override
     public void periodic() {
-        differentialDrive.arcadeDrive(leftY, rightX, true);
+        differentialDrive.arcadeDrive(leftY, rightX*0.75, true);
     }
 }
