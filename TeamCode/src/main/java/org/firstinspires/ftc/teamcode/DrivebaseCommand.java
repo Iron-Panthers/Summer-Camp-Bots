@@ -8,16 +8,16 @@ public class DrivebaseCommand extends CommandBase {
 
     DrivebaseSubsystem drivebaseSubsystem;
 
-    DoubleSupplier leftY, rightX;
+    DoubleSupplier rotSupplier, velocitySupplier;
 
-    public DrivebaseCommand(DrivebaseSubsystem drivebaseSubsystem, DoubleSupplier leftY, DoubleSupplier rightX) {
+    public DrivebaseCommand(DrivebaseSubsystem drivebaseSubsystem, DoubleSupplier rotSupplier, DoubleSupplier velocitySupplier) {
 
 
 
         this.drivebaseSubsystem = drivebaseSubsystem;
 
-        this.leftY = leftY;
-        this.rightX = rightX;
+        this.rotSupplier = rotSupplier;
+        this.velocitySupplier = velocitySupplier;
 
         addRequirements(drivebaseSubsystem);
     }
@@ -28,8 +28,8 @@ public class DrivebaseCommand extends CommandBase {
 
     @Override
     public void execute() {
-        if (leftY == null || rightX == null) return;
-        drivebaseSubsystem.drive(leftY.getAsDouble(), rightX.getAsDouble());
+        if (rotSupplier == null || velocitySupplier == null) return;
+        drivebaseSubsystem.drive(rotSupplier.getAsDouble(), velocitySupplier.getAsDouble());
     }
 
     @Override
